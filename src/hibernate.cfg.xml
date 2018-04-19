@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+			<property name="connection.url">jdbc:mysql://localhost:3306/hibdata</property>
+			<property name="connection.username">root</property>
+			<property name="connection.password">root</property> -->
+
+		<!-- JDBC connection pool (use the built-in) -->
+		<!--  <property name="connection.pool_size">15</property> -->
+
+		<!-- SQL dialect :方言-->
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+
+		<!-- <property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.ehcache.EhCacheRegionFactory
+			</property> -->
+
+
+		<!-- 显示sql -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<mapping resource="com/offcn/pojo/User.hbm.xml" />
+		<mapping resource="com/offcn/pojo/Wage.hbm.xml" />
+		<mapping resource="com/offcn/pojo/Dept.hbm.xml" />
+		<mapping resource="com/offcn/pojo/Record.hbm.xml" />
+		<mapping resource="com/offcn/pojo/Staff.hbm.xml" />
+		<mapping resource="com/offcn/pojo/Manager.hbm.xml" />
+
+	</session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <!--/（ng）:http://localhost:8080/项目名/ng -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <package name="mypck" namespace="/" extends="struts-default">
+       <action name="u_*" class="com.offcn.action.UserAction" method="{1}">
+         <result name="list">/index.jsp</result>
+         <result name="add" type="redirectAction">u_list</result>
+       </action>
+       <action name="login" class="com.offcn.action.LoginAction" method="login">
+         <result name="login">/login.jsp</result>
+         <result name="index">/views/index/index.html</result>
+       </action>
+       <action name="staff_*" class="com.offcn.action.StaffAction" method="{1}">
+          <result name="list">/views/staff/stafflist.jsp</result>
+          <result name="del" type="redirectAction">staff_stafflist</result>
+          <result name="toAdd">/views/staff/staffform.jsp</result>
+          <result name="save" type="redirectAction">staff_addStaff</result>
+          <result name="toEdit">/views/staff/staffEdit.jsp</result>
+       </action>
+       <action name="dept_*" class="com.offcn.action.DeptAction" method="{1}">
+       	<result name="list">/views/departmentpage/deplist.jsp</result>
+       	 <result name="del" type="redirectAction">dept_depList</result>
+       	 <result name="toEdit">/views/departmentpage/editdepform.jsp</result>
+       </action>
+    </package>
+</struts>
